@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <math.h>
 
+/* calcula pesos para interpolação de Lagrange */
+void barycentricWeights(double**);
+/* avalia p(x) de Lagrange */
+double avalLagrange(double);
+
 int n = 7;
 double dados[][4] = 
     {
@@ -65,7 +70,6 @@ int main(int argc, char *argv[]) {
     sscanf(argv[1],"%lf",&x);
     printf("%lf\n",avalLagrange(x));
 
-    
     return 0;
 }
 
