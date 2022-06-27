@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-//int n = 7;
+int n = 7;
 double dados[][4] = 
     {
      /* x  F(x) O(x)  F(x)cos(O(x)) */
@@ -16,7 +16,6 @@ double dados[][4] =
     };
 
 void barycentricWeights(double **weight) {
-    int n = 7;
     double aux[n];
     for (int j = 0; j < n; j++)
         aux[j] = 1;
@@ -35,8 +34,6 @@ void barycentricWeights(double **weight) {
 }
 
 double avalLagrange(double x) {
-    int n = 7;
-
     // x == xi? i = 0...n-1
     for (int i = 0; i < n; i++)
         if (x == dados[i][0])
