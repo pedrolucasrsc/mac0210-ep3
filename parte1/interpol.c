@@ -71,8 +71,7 @@ int main(int argc, char *argv[]) {
 
     int npoints = atoi(argv[1]);
     double x0 = dados[0][0], xn_1 = dados[n-1][0];
-    double h = (xn_1-x0)/(npoints-1), *lagrange;
-    lagrange = malloc(npoints * sizeof(double));
+    double h = (xn_1-x0)/(npoints-1);
 
     for (int i = 0; i < npoints; i++) {
         double x = x0+i*h;
