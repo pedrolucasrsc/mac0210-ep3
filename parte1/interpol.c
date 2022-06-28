@@ -69,9 +69,15 @@ int main(int argc, char *argv[]) {
     if (argc != 2)
         return 1;
 
-    double x;
-    sscanf(argv[1],"%lf",&x);
-    printf("%lf\n",avalLagrange(x));
+    int npoints = atoi(argv[1]);
+    double x0 = dados[0][0], xn_1 = dados[n-1][0];
+    double h = (xn_1-x0)/(npoints-1), *lagrange;
+    lagrange = malloc(npoints * sizeof(double));
+
+    for (int i = 0; i < npoints; i++) {
+        double x = x0+i*h;
+        printf("%lf %lf\n", x, avalLagrange(x));
+    }
 
     return 0;
 }
