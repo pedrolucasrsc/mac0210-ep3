@@ -45,8 +45,9 @@ double avalLagrange(double x) {
             return dados[i][3];
 
     // x < x0 || xn-1 < x ?
-    if (x < dados[0][0] || dados[6][0] < x)
+    if (x < dados[0][0] || dados[n-1][0] < x) {
         return NAN;
+    }
 
     double *weight, phi = 1, p = 0;
     weight = malloc(n * sizeof(double));
@@ -58,8 +59,10 @@ double avalLagrange(double x) {
 
     for (int j = 0; j < n; j++)
         p += weight[j]*dados[j][3]/(x-dados[j][0]);
+
+    p *= phi;
     
-    return p*phi;
+    return p;
 }
 
 int main(int argc, char *argv[]) {
